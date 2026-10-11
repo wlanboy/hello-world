@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tetris</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <main class="layout">
+    <section class="board-wrap">
+      <canvas id="board" width="300" height="600" aria-label="Spielfeld"></canvas>
+      <div id="overlay" class="overlay">
+        <h1>TETRIS</h1>
+        <p id="overlay-text">Drücke <kbd>Enter</kbd> zum Starten</p>
+        <form id="score-form" class="hidden">
+          <label for="player-name">Dein Name</label>
+          <input id="player-name" maxlength="20" required autocomplete="nickname">
+          <button type="submit">Highscore speichern</button>
+        </form>
+        <button id="start-btn" type="button">Start</button>
+      </div>
+    </section>
+
+    <aside class="side">
+      <div class="panel">
+        <h2>Nächster</h2>
+        <canvas id="next" width="120" height="120"></canvas>
+      </div>
+      <div class="panel stats">
+        <div><span>Punkte</span><strong id="score">0</strong></div>
+        <div><span>Reihen</span><strong id="lines">0</strong></div>
+        <div><span>Level</span><strong id="level">1</strong></div>
+      </div>
+      <div class="panel">
+        <h2>Highscores</h2>
+        <ol id="highscores"><li class="muted">lädt …</li></ol>
+      </div>
+      <div class="panel help">
+        <h2>Steuerung</h2>
+        <ul>
+          <li><kbd>←</kbd> <kbd>→</kbd> bewegen</li>
+          <li><kbd>↑</kbd> / <kbd>X</kbd> drehen</li>
+          <li><kbd>↓</kbd> schneller fallen</li>
+          <li><kbd>Leertaste</kbd> fallen lassen</li>
+          <li><kbd>P</kbd> Pause</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+  <script src="index.js"></script>
+</body>
+</html>
