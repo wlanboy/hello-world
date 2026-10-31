@@ -110,7 +110,7 @@ WHOAMI_PAGE = """<!doctype html>
 </head>
 <body>
   <main>
-    <h1>whoami</h1>
+    <h1>whoami </h1>
     <dl class="panel">{info}</dl>
     <code class="panel request-line">{request_line}</code>
     <table class="panel">
