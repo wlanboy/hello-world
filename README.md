@@ -105,3 +105,14 @@ services:
 volumes:
   tetris-data:
 ```
+
+## Kubernetes (Helm)
+
+Das Helm Chart liegt in [hello-world-chart/](hello-world-chart/) und deployt den Dienst hinter dem Istio Ingress Gateway (nur HTTP).
+Details stehen in [hello-world-chart/hello-world-chart.md](hello-world-chart/hello-world-chart.md).
+
+```bash
+kubectl create namespace hello-world
+kubectl label namespace hello-world istio-injection=enabled --overwrite
+helm install hello-world ./hello-world-chart -n hello-world
+```

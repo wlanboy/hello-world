@@ -4,3 +4,4 @@
 *.db
 Dockerfile
 .dockerignore
+hello-world-chart
