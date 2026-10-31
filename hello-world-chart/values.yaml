@@ -1,0 +1,30 @@
+image:
+  repository: ghcr.io/wlanboy/hello-world
+  tag: latest
+  pullPolicy: Always
+
+replicaCount: 1
+deploymentName: hello-world
+
+service:
+  name: hello-world-svc
+  type: ClusterIP
+  port: 8000
+  targetPort: 8000
+
+# Highscores (SQLite unter /data/highscores.db) in einem PersistentVolume speichern,
+# damit sie Rollouts und Pod-Neustarts ueberleben.
+persistence:
+  enabled: true
+  size: 100Mi
+  storageClass: ""  # leer = Default-StorageClass des Clusters
+
+ingress:
+  # istio | none
+  controller: istio
+  hosts:
+    - hello.gmk.lan
+    - hello.localhost
+
+istio:
+  gatewayName: hello-world-gw
