@@ -1,6 +1,8 @@
 # Tetris
 
 Statisches Tetris (HTML/CSS/JS ohne Frameworks) mit FastAPI-Backend für Highscores (SQLite).
+Die Startseite ist ein whoami-Dienst: Sie zeigt Hostname, IPs, Client-Adresse, Request-Zeile und alle
+Request-Header an. Der Play-Button führt zum Spiel unter `/tetris/`.
 
 ## Starten
 
@@ -8,7 +10,13 @@ Statisches Tetris (HTML/CSS/JS ohne Frameworks) mit FastAPI-Backend für Highsco
 uv run hello-world
 ```
 
-Dann http://127.0.0.1:8000 öffnen.
+Dann http://127.0.0.1:8000 öffnen (Tetris direkt: http://127.0.0.1:8000/tetris/).
+
+Ohne `Accept: text/html` (z. B. mit `curl`) liefert `/` die whoami-Ausgabe als Klartext:
+
+```bash
+curl http://127.0.0.1:8000/
+```
 
 Entwicklung mit Auto-Reload:
 
@@ -20,6 +28,7 @@ Umgebungsvariablen: `HOST`, `PORT`, `HIGHSCORE_DB` (Standard: `highscores.db`), 
 
 ## API
 
+- `GET /` – whoami (HTML für Browser, sonst `text/plain`)
 - `GET /api/highscores` – Top 10
 - `POST /api/highscores` – `{"name": "...", "score": 1234, "lines": 12, "level": 2}`, liefert die neue Top 10
 
